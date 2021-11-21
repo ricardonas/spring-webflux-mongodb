@@ -1,0 +1,18 @@
+version: '3'
+services:
+  db:
+    image: mongo:latest
+    container_name: webflux-mongodb
+    environment:
+      - DATABASE_NAME=webflux-db
+      - USER_NAME=test
+      - USER_PASSWORD=test
+      - MONGO_INITDB_ROOT_USERNAME=test
+      - MONGO_INITDB_ROOT_PASSWORD=test
+    ports:
+      - "27017:27017"
+    networks:
+      - webflux
+networks:
+  webflux:
+    driver: bridge
